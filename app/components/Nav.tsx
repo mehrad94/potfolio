@@ -2,9 +2,7 @@
 import { usePathname, useRouter } from 'next/navigation';
 import { navData } from '../variants';
 
-type Props = {};
-
-const Nav = (props: Props) => {
+const Nav: React.FC = () => {
   const pathname = usePathname();
   const router = useRouter();
   return (

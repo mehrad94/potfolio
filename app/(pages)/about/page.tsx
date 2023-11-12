@@ -1,44 +1,64 @@
 'use client';
-
 import { aboutData, fadeIn } from '@/app/variants';
 import { motion } from 'framer-motion';
-import { Avatar, Circles } from '../../components';
+import { ReactNode, useState } from 'react';
 import CountUp from 'react-countup';
-import { FC, ReactNode, useState } from 'react';
+import { Circles } from '../../components';
+import Skills from './Skills';
+import Experiences from './Experiences';
 
-type Props = {};
-
-const About = (props: Props) => {
+const RenderData = ({ index }: { index: number }) => {
+  switch (index) {
+    case 0:
+      return <Skills />;
+    case 1:
+      return <Experiences />;
+  }
+  return null;
+};
+const About: React.FC = () => {
   const [index, setIndex] = useState(0);
   return (
-    <div className='h-full bg-primary py-32 text-center xl:text-left z-50'>
+    <div className='h-full flex bg-primary py-32 text-center xl:text-left z-50'>
       <Circles />
       <motion.div
         variants={fadeIn('right', 0.2)}
         initial='hidden'
         animate='show'
         exit='hidden'
-        className='hidden xl:flex absolute bottom-0 -left-370px]'
+        className='hidden xl:flex absolute bottom-0 -left-[370px]'
       >
         {/* <Avatar /> */}
       </motion.div>
       <div className='container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6'>
         {/* Text */}
         <div className='flex-1 flex flex-col justify-center'>
-          <motion.h2 variants={fadeIn('right', 0.2)} initial='hidden' animate='show' exit='hidden' className='h2'>
-            Captivating <span className='text-accent'> stories </span> birth magnificent designs.
+          <motion.h2 variants={fadeIn('right', 0.2)} initial='hidden' animate='show' exit='hidden' className='h4 xl:h2'>
+            Convert <span className='text-accent'> COFFEE </span> to optimized code.
           </motion.h2>
           <motion.p
             variants={fadeIn('right', 0.4)}
             initial='hidden'
             animate='show'
             exit='hidden'
-            className='max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0'
+            className='max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0 text-xs text-left'
           >
-            {` 10 years age, I began freelancing as a developer. 
-            Since then I've done remote work for agencies, 
-            consulted for startups, and collaborated on 
-            digital products for business and consumer use.`}
+            • Customized 10+ user-friendly websites using HTML, CSS, and JavaScript;
+            <br />
+            • Influenced developer communities on platforms like StackOverflow (+348K of reach) and GitHub.
+            <br />
+            • Created over 500 components in Storybook, ensuring clear code organization and reducing development time
+            by 25%.
+            <br />
+            • Implemented CI/CD pipelines for 10+ projects using GitHub Actions, resulting in an average 50% reduction
+            in deployment time.
+            <br />
+            • Conceptualized Redux toolkit to manage state and queries in applications, resulting in a 20% improvement
+            in query response times and a 30% increase in application scalability.
+            <br />
+            • Proficient in the Tailwind CSS framework and streamlined CSS development, saving 30% on design and
+            implementation time.
+            <br />• Enhanced application performance and scalability, resulting in a 25% reduction in page load times.
           </motion.p>
           {/* Counters */}
           <motion.div
@@ -52,31 +72,25 @@ const About = (props: Props) => {
               {/* experience */}
               <div className='relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0'>
                 <div className='text-2xl xl:text-4xl font-extrabold text-accent mb-2'>
-                  <CountUp start={0} end={10} duration={5} /> +
+                  <CountUp start={0} end={8} duration={10} /> +
                 </div>
                 <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>Years of experience</div>
               </div>
               {/* Clients */}
               <div className='relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0'>
                 <div className='text-2xl xl:text-4xl font-extrabold text-accent mb-2'>
-                  <CountUp start={0} end={250} duration={5} /> +
+                  <CountUp start={0} end={7} duration={5} /> +
                 </div>
                 <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>Satisfied clients</div>
               </div>
               {/* Projects */}
               <div className='relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0'>
                 <div className='text-2xl xl:text-4xl font-extrabold text-accent mb-2'>
-                  <CountUp start={0} end={20} duration={5} /> +
+                  <CountUp start={0} end={12} duration={5} /> +
                 </div>
                 <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>Finished projects</div>
               </div>
               {/* Awards */}
-              <div className='relative flex-1'>
-                <div className='text-2xl xl:text-4xl font-extrabold text-accent mb-2'>
-                  <CountUp start={0} end={20} duration={5} /> +
-                </div>
-                <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>Winning awards</div>
-              </div>
             </div>
           </motion.div>
         </div>
@@ -86,7 +100,7 @@ const About = (props: Props) => {
           initial='hidden'
           animate='show'
           exit='hidden'
-          className='flex flex-col w-full xl:max-w-[48%] h-[480px]'
+          className='flex flex-col w-full xl:max-w-[48%]'
         >
           <div className='flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4'>
             {aboutData.map((item, itemIndex) => {
@@ -106,29 +120,7 @@ const About = (props: Props) => {
               );
             })}
           </div>
-          <div className='py-2 xl:py-6 flex  flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start '>
-            {aboutData[index].info.map((item, itemIndex) => {
-              return (
-                <div
-                  className='flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/60'
-                  key={item.title}
-                >
-                  <div className='font-light mb-2 md:mb-0'>{item.title}</div>
-                  <div className='hidden md:flex'>-</div>
-                  <div>{(item as any).stage}</div>
-                  <div className='flex gap-x-4'>
-                    {(item as any).icons?.map((icon: ReactNode, itemIndex: number) => {
-                      return (
-                        <div className='text-2xl text-white' key={`ic-${itemIndex}`}>
-                          {icon}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <RenderData index={index} />
         </motion.div>
       </div>
     </div>

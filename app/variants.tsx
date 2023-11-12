@@ -1,14 +1,21 @@
+import { BiHomeSmile, BiLogoRedux, BiLogoTailwindCss, BiLogoTypescript, BiUserCircle } from 'react-icons/bi';
+import { FaCss3, FaHtml5, FaJs, FaReact } from 'react-icons/fa';
+
+import { BsBriefcase, BsGit, BsGithub } from 'react-icons/bs';
+import { DiLinux } from 'react-icons/di';
+import { RxCrop, RxDesktop, RxPencil2, RxReader, RxRocket } from 'react-icons/rx';
 import {
-  BriefcaseIcon,
-  ChatBubbleLeftEllipsisIcon,
-  EnvelopeOpenIcon,
-  HomeModernIcon,
-  UserCircleIcon,
-  WrenchScrewdriverIcon
-} from '@heroicons/react/24/outline';
-import { RxRocket, RxReader, RxDesktop, RxPencil2, RxCrop, RxCode } from 'react-icons/rx';
-import { FaCss3, FaFigma, FaHtml5, FaJs, FaReact, FaWordpress } from 'react-icons/fa';
-import { SiAdobephotoshop, SiAdobexd, SiFramer, SiNextdotjs } from 'react-icons/si';
+  SiCypress,
+  SiFramer,
+  SiGithubactions,
+  SiGitlab,
+  SiJest,
+  SiMocha,
+  SiNextdotjs,
+  SiReactquery,
+  SiStorybook,
+  SiSwagger
+} from 'react-icons/si';
 
 export const fadeIn = (direction: string, delay: number) => {
   return {
@@ -40,11 +47,9 @@ export const fadeIn = (direction: string, delay: number) => {
 const iconClassnames = 'h-5 w-5';
 
 export const navData = [
-  { name: 'home', path: '/', icon: <HomeModernIcon className={iconClassnames} /> },
-  { name: 'about', path: '/about', icon: <UserCircleIcon className={iconClassnames} /> },
-  { name: 'services', path: '/services', icon: <WrenchScrewdriverIcon className={iconClassnames} /> },
-  { name: 'work', path: '/work', icon: <BriefcaseIcon className={iconClassnames} /> },
-  { name: 'contact', path: '/contact', icon: <EnvelopeOpenIcon className={iconClassnames} /> }
+  { name: 'home', path: '/', icon: <BiHomeSmile className={iconClassnames} /> },
+  { name: 'about', path: '/about', icon: <BiUserCircle className={iconClassnames} /> },
+  { name: 'work', path: '/work', icon: <BsBriefcase className={iconClassnames} /> }
 ];
 
 export const transitionVariant = {
@@ -53,74 +58,57 @@ export const transitionVariant = {
   exit: { x: ['100%', '0%'], width: ['100%', '0%'] }
 };
 
+export const skills = {
+  title: 'skills',
+  info: [
+    {
+      title: 'Languages',
+      icons: [
+        <FaHtml5 key={'faHtml5'} />,
+        <FaCss3 key={'faCss'} />,
+        <FaJs key={'faHtml5'} />,
+        <BiLogoTypescript key={'typescript'} />
+      ]
+    },
+    {
+      title: 'Frameworks',
+      icons: [<FaReact key={'faHtml5'} />, <SiNextdotjs key={'faHtml5'} />, <BiLogoTailwindCss key={'tailwind'} />]
+    },
+    {
+      title: 'State management',
+      icons: [<BiLogoRedux key={'redux'} />, <SiReactquery key={'react-query'} />]
+    },
+
+    {
+      title: 'Version controls',
+      icons: [
+        <BsGit key={'git'} />,
+        <BsGithub key={'swagger'} />,
+        <SiGitlab key={'storybook'} />,
+        <SiGithubactions key={'actions'} />
+      ]
+    },
+    {
+      title: 'Test frameworks',
+      icons: [<SiCypress key={'cypress'} />, <SiJest key={'jest'} />, <SiMocha key={'mocha'} />]
+    },
+    {
+      title: 'Utility',
+      icons: [
+        <SiFramer key={'faHtml5'} />,
+        <SiSwagger key={'swagger'} />,
+        <SiStorybook key={'storybook'} />,
+        <DiLinux key={'linux'} />
+      ]
+    }
+  ]
+};
 export const aboutData = [
   {
-    title: 'skills',
-    info: [
-      {
-        title: 'Web Development',
-        icons: [
-          <FaHtml5 key={'faHtml5'} />,
-          <FaCss3 key={'faCss'} />,
-          <FaJs key={'faHtml5'} />,
-          <FaReact key={'faHtml5'} />,
-          <SiNextdotjs key={'faHtml5'} />,
-          <SiFramer key={'faHtml5'} />,
-          <FaWordpress key={'faHtml5'} />
-        ]
-      },
-      {
-        title: 'UI/UX Design',
-        icons: [<FaFigma key={'faHtml5'} />, <SiAdobexd key={'faHtml5'} />, <SiAdobephotoshop key={'faHtml5'} />]
-      }
-    ]
+    title: 'skills'
   },
   {
-    title: 'awards',
-    info: [
-      {
-        title: 'Webby Awards - Honoree',
-        stage: '2011 - 2012'
-      },
-      {
-        title: 'Adobe Design Achievement Awards - Finalist',
-        stage: '2009 - 2010'
-      }
-    ]
-  },
-  {
-    title: 'experience',
-    info: [
-      {
-        title: 'UX/UI Designer - XYZ Company',
-        stage: '2012 - 2023'
-      },
-      {
-        title: 'Web Developer - ABC Agency',
-        stage: '2010 - 2012'
-      },
-      {
-        title: 'Intern - DEF Corporation',
-        stage: '2008 - 2010'
-      }
-    ]
-  },
-  {
-    title: 'credentials',
-    info: [
-      {
-        title: 'Web Development - ABC University, LA, CA',
-        stage: '2011'
-      },
-      {
-        title: 'Computer Science Diploma - AV Technical Institute',
-        stage: '2009'
-      },
-      {
-        title: 'Certified Graphic Designer - ABC Institute, Los Angeles, CA',
-        stage: '2006'
-      }
-    ]
+    title: 'experiences'
   }
 ];
 
@@ -157,40 +145,33 @@ export const workSlides = {
     {
       images: [
         {
-          title: 'title',
-          path: '/thumb1.jpg'
+          title: 'AghProfile',
+          path: '/aghprofile.jpg',
+          url: 'https://aghprofile.ir/'
         },
         {
-          title: 'title',
-          path: '/thumb2.jpg'
+          title: 'dropp',
+          path: '/dropp.jpg',
+          url: 'https://droppgroup.com/'
         },
         {
-          title: 'title',
-          path: '/thumb3.jpg'
+          title: 'Ecommerce',
+          path: '/ecommerce.jpg',
+          url: 'https://droppcommerce.ir/'
         },
         {
-          title: 'title',
-          path: '/thumb4.jpg'
+          title: 'ApiEco',
+          path: '/apieco.jpg',
+          url: 'https://apieco.ir/home-en.html'
         }
       ]
     },
     {
       images: [
         {
-          title: 'title',
-          path: '/thumb4.jpg'
-        },
-        {
-          title: 'title',
-          path: '/thumb1.jpg'
-        },
-        {
-          title: 'title',
-          path: '/thumb2.jpg'
-        },
-        {
-          title: 'title',
-          path: '/thumb3.jpg'
+          title: 'chechilas',
+          path: '/chechilas.jpg',
+          url: 'https://chechilas.com/'
         }
       ]
     }

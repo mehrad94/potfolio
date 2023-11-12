@@ -4,9 +4,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/app/variants';
 import WorkSlider from '@/app/components/WorkSlider';
-type Props = {};
 
-const Work = (props: Props) => {
+const Work = () => {
   return (
     <div className='h-full bg-primary/30 py-36 flex items-center '>
       <Circles />
@@ -28,10 +27,12 @@ const Work = (props: Props) => {
               initial='hidden'
               animate='show'
               exit='hidden'
-              className='mb-4 max-w-[400px] mx-auto lg:mx-0'
+              className='mb-4 max-w-[400px] mx-auto lg:mx-0 text-justify'
             >
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi modi ea consequatur numquam atque
-              commodi alias veritatis omnis.
+              In my professional journey, I have passionately pursued a career that blends creativity with technical
+              proficiency. With a strong foundation in Javascript, I have consistently delivered impactful results in
+              various projects. My approach to work is characterized by meticulous attention to detail, a commitment to
+              innovation, and a relentless pursuit of excellence.
             </motion.p>
           </div>
           {/* Slider  */}
