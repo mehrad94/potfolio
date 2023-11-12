@@ -23,7 +23,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.SSH_SERVER_IP }}
           REMOTE_USER: ${{ secrets.SSH_USERNAME }}
           SCRIPT_AFTER: |
-            cd /var/www/mehradfarahnak.info && git pull origin main
+            cd /var/www/mehradfarahnak.info && git pull
             pnpm install
             pnpm run build
-            pm2 reload 1
+            pm2 reload 6
